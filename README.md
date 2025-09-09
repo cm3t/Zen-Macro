@@ -3,3 +3,11 @@
 <p> A Sol's RNG Macro to track Biomes, Merchants and Auras.<br>I am building off of maxstellar's Biome Macro for Mac.</p>
 
 # How to install?
+Go to **https://www.python.org/** and install the latest version of Python.
+Then, open a console and navigate to the macro folder.
+
+Once there, type the following into your terminal:
+`pip3 install -r requirements.txt`
+
+If that doesn't work, try:
+`pip install -r requirements.txt`
