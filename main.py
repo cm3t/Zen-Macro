@@ -103,7 +103,7 @@ def stop():
                 ending_embed = discord_webhook.DiscordEmbed(
                         description="**Macro stopped.**",
                         timestamp=datetime.datetime.now(datetime.timezone.utc))
-                ending_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/DREAMSPACE.png")
+                ending_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
                 ending_webhook.add_embed(ending_embed)
                 ending_webhook.execute()
 
@@ -111,7 +111,7 @@ def stop():
             ending_embed = discord_webhook.DiscordEmbed(
                 description="**Macro stopped.**",
                 timestamp=datetime.datetime.now(datetime.timezone.utc))
-            ending_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/DREAMSPACE.png")
+            ending_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
             for url in webhook_urls:
                 ending_webhook = discord_webhook.DiscordWebhook(url=url)
                 ending_webhook.add_embed(ending_embed)
@@ -193,7 +193,7 @@ def check_for_hover_text(file):
                                                 color=biome_colors[last_event],
                                                 description="> ## Biome Ended - " + last_event)
                                             embed.set_thumbnail(url="https://cvmet.github.io/biome_thumb/" + last_event.replace(" ", "%20") + ".png")
-                                            embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/DREAMSPACE.png")
+                                            embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
                                             webhook.add_embed(embed)
                                             webhook.execute()
                                         else:
@@ -205,7 +205,7 @@ def check_for_hover_text(file):
                                             color=biome_colors[event],
                                             description="> ## Biome Started - " + event + "\n> " + psURL.get())
                                         embed.set_thumbnail(url="https://cvmet.github.io/biome_thumb/" + event.replace(" ", "%20") + ".png")
-                                        embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/DREAMSPACE.png")
+                                        embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
                                         webhook.add_embed(embed)
                                         if event == "GLITCHED" or event == "DREAMSPACE":
                                             webhook.set_content("@everyone")
@@ -221,7 +221,7 @@ def check_for_hover_text(file):
                                                     color=biome_colors[last_event],
                                                     description="> ## Biome Ended - " + last_event)
                                                 embed.set_thumbnail(url="https://cvmet.github.io/biome_thumb/" + last_event.replace(" ", "%20") + ".png")
-                                                embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/DREAMSPACE.png")
+                                                embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
                                                 webhook.add_embed(embed)
                                                 webhook.execute()
                                         else:
@@ -234,7 +234,7 @@ def check_for_hover_text(file):
                                                 color=biome_colors[event],
                                                 description="> ## Biome Started - " + event + "\n> " + psURL.get())
                                             embed.set_thumbnail(url="https://cvmet.github.io/biome_thumb/" + event.replace(" ", "%20") + ".png")
-                                            embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/DREAMSPACE.png")
+                                            embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
                                             webhook = discord_webhook.DiscordWebhook(url=url)
                                             webhook.add_embed(embed)
                                             if event == "GLITCHED" or event == "DREAMSPACE":
@@ -253,7 +253,7 @@ def check_for_hover_text(file):
                                         embed = discord_webhook.DiscordEmbed(
                                             timestamp=datetime.datetime.now(datetime.timezone.utc),
                                             description="> ## Aura Equipped - " + aura)
-                                        embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/DREAMSPACE.png")
+                                        embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
                                         if aura == "Luminosity" or aura == "EQUINOX" or aura == "Pixelation":
                                             embed.set_thumbnail(url="https://cvmet.github.io/aura_thumb/" + aura.replace(" ", "%20") + ".png")
                                         webhook.add_embed(embed)
@@ -265,7 +265,7 @@ def check_for_hover_text(file):
                                             embed = discord_webhook.DiscordEmbed(
                                                 timestamp=datetime.datetime.now(datetime.timezone.utc),
                                                 description="> ## Aura Equipped - " + aura)
-                                            embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/DREAMSPACE.png")
+                                            embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
                                             if aura == "Luminosity" or aura == "EQUINOX" or aura == "Pixelation":
                                                 embed.set_thumbnail(url="https://cvmet.github.io/aura_thumb/" + aura.replace(" ", "%20") + ".png")
                                             webhook.add_embed(embed)
@@ -286,7 +286,7 @@ def check_for_hover_text(file):
                 close_embed = discord_webhook.DiscordEmbed(
                     description="**Roblox closed or crashed.**",
                     timestamp=datetime.datetime.now(datetime.timezone.utc))
-                close_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/DREAMSPACE.png")
+                close_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
                 close_webhook.add_embed(close_embed)
                 close_webhook.execute()
             else:
@@ -295,7 +295,7 @@ def check_for_hover_text(file):
                     close_embed = discord_webhook.DiscordEmbed(
                         description="**Roblox closed or crashed.**",
                         timestamp=datetime.datetime.now(datetime.timezone.utc))
-                    close_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/DREAMSPACE.png")
+                    close_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
                     close_webhook.add_embed(close_embed)
                     close_webhook.execute()
             root.title("maxstellar's Biome Macro - Paused")
@@ -361,7 +361,7 @@ def init():
     starting_embed = discord_webhook.DiscordEmbed(
         description="**Macro started!**",
         timestamp=datetime.datetime.now(datetime.timezone.utc))
-    starting_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/DREAMSPACE.png")
+    starting_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
     if multi_webhook.get() != "1":
         if "discord.com" not in webhookURL.get() or "https://" not in webhookURL.get():
             popup("Invalid or missing webhook link.", "Error")
