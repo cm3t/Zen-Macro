@@ -32,7 +32,16 @@ def popup(message, title):
 
     subprocess.call("osascript -e '{}'".format(applescript), shell=True)
 
+def notify(title, text):
+  subprocess.call(['osascript', '-e', CMD, title, text])
 
+CMD = '''
+on run argv
+  display notification (item 2 of argv) with title (item 1 of argv)
+end run
+'''
+
+# Example uses:
 def my_handler(types, value, tb):
     logger.exception("Uncaught exception: {0}".format(str(value)))
     popup("Check crash.log for information on this crash.", "Crashed!")
@@ -209,6 +218,7 @@ def check_for_hover_text(file):
                                         webhook.add_embed(embed)
                                         if event == "GLITCHED" or event == "DREAMSPACE":
                                             webhook.set_content("@everyone")
+                                            notify("Zen", "Biome Started: " + event)
                                         webhook.execute()
                                 else:
                                     if event == "NORMAL":
@@ -240,6 +250,8 @@ def check_for_hover_text(file):
                                             if event == "GLITCHED" or event == "DREAMSPACE":
                                                 webhook.set_content("@everyone")
                                             webhook.execute()
+                                        if event == "GLITCHED" or event == "DREAMSPACE":
+                                            notify("Zen", "Biome Started: " + event)
                                 last_event = event
                             if state and aura != last_aura and aura != "n":
                                 if aura_detection.get() == 1 and aura != "None":
