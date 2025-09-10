@@ -103,7 +103,7 @@ def stop():
                 ending_embed = discord_webhook.DiscordEmbed(
                         description="**Macro stopped.**",
                         timestamp=datetime.datetime.now(datetime.timezone.utc))
-                ending_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
+                ending_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                 ending_webhook.add_embed(ending_embed)
                 ending_webhook.execute()
 
@@ -111,7 +111,7 @@ def stop():
             ending_embed = discord_webhook.DiscordEmbed(
                 description="**Macro stopped.**",
                 timestamp=datetime.datetime.now(datetime.timezone.utc))
-            ending_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
+            ending_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
             for url in webhook_urls:
                 ending_webhook = discord_webhook.DiscordWebhook(url=url)
                 ending_webhook.add_embed(ending_embed)
@@ -192,8 +192,8 @@ def check_for_hover_text(file):
                                                 timestamp=datetime.datetime.now(datetime.timezone.utc),
                                                 color=biome_colors[last_event],
                                                 description="> ## Biome Ended - " + last_event)
-                                            embed.set_thumbnail(url="https://cvmet.github.io/biome_thumb/" + last_event.replace(" ", "%20") + ".png")
-                                            embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
+                                            embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/" + last_event.replace(" ", "%20") + ".png")
+                                            embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                             webhook.add_embed(embed)
                                             webhook.execute()
                                         else:
@@ -204,8 +204,8 @@ def check_for_hover_text(file):
                                             timestamp=datetime.datetime.now(datetime.timezone.utc),
                                             color=biome_colors[event],
                                             description="> ## Biome Started - " + event + "\n> " + psURL.get())
-                                        embed.set_thumbnail(url="https://cvmet.github.io/biome_thumb/" + event.replace(" ", "%20") + ".png")
-                                        embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
+                                        embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/" + event.replace(" ", "%20") + ".png")
+                                        embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                         webhook.add_embed(embed)
                                         if event == "GLITCHED" or event == "DREAMSPACE":
                                             webhook.set_content("@everyone")
@@ -220,8 +220,8 @@ def check_for_hover_text(file):
                                                     timestamp=datetime.datetime.now(datetime.timezone.utc),
                                                     color=biome_colors[last_event],
                                                     description="> ## Biome Ended - " + last_event)
-                                                embed.set_thumbnail(url="https://cvmet.github.io/biome_thumb/" + last_event.replace(" ", "%20") + ".png")
-                                                embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
+                                                embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/" + last_event.replace(" ", "%20") + ".png")
+                                                embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                                 webhook.add_embed(embed)
                                                 webhook.execute()
                                         else:
@@ -233,8 +233,8 @@ def check_for_hover_text(file):
                                                 timestamp=datetime.datetime.now(datetime.timezone.utc),
                                                 color=biome_colors[event],
                                                 description="> ## Biome Started - " + event + "\n> " + psURL.get())
-                                            embed.set_thumbnail(url="https://cvmet.github.io/biome_thumb/" + event.replace(" ", "%20") + ".png")
-                                            embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
+                                            embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/" + event.replace(" ", "%20") + ".png")
+                                            embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                             webhook = discord_webhook.DiscordWebhook(url=url)
                                             webhook.add_embed(embed)
                                             if event == "GLITCHED" or event == "DREAMSPACE":
@@ -253,9 +253,9 @@ def check_for_hover_text(file):
                                         embed = discord_webhook.DiscordEmbed(
                                             timestamp=datetime.datetime.now(datetime.timezone.utc),
                                             description="> ## Aura Equipped - " + aura)
-                                        embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
+                                        embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                         if aura == "Luminosity" or aura == "EQUINOX" or aura == "Pixelation":
-                                            embed.set_thumbnail(url="https://cvmet.github.io/aura_thumb/" + aura.replace(" ", "%20") + ".png")
+                                            embed.set_thumbnail(url="https://cm3t.github.io/aura_thumb/" + aura.replace(" ", "%20") + ".png")
                                         webhook.add_embed(embed)
                                         webhook.execute()
                                     else:
@@ -265,9 +265,9 @@ def check_for_hover_text(file):
                                             embed = discord_webhook.DiscordEmbed(
                                                 timestamp=datetime.datetime.now(datetime.timezone.utc),
                                                 description="> ## Aura Equipped - " + aura)
-                                            embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
+                                            embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                             if aura == "Luminosity" or aura == "EQUINOX" or aura == "Pixelation":
-                                                embed.set_thumbnail(url="https://cvmet.github.io/aura_thumb/" + aura.replace(" ", "%20") + ".png")
+                                                embed.set_thumbnail(url="https://cm3t.github.io/aura_thumb/" + aura.replace(" ", "%20") + ".png")
                                             webhook.add_embed(embed)
                                             webhook.execute()
                                 last_aura = aura
@@ -286,7 +286,7 @@ def check_for_hover_text(file):
                 close_embed = discord_webhook.DiscordEmbed(
                     description="**Roblox closed or crashed.**",
                     timestamp=datetime.datetime.now(datetime.timezone.utc))
-                close_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
+                close_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                 close_webhook.add_embed(close_embed)
                 close_webhook.execute()
             else:
@@ -295,10 +295,10 @@ def check_for_hover_text(file):
                     close_embed = discord_webhook.DiscordEmbed(
                         description="**Roblox closed or crashed.**",
                         timestamp=datetime.datetime.now(datetime.timezone.utc))
-                    close_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
+                    close_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                     close_webhook.add_embed(close_embed)
                     close_webhook.execute()
-            root.title("maxstellar's Biome Macro - Paused")
+            root.title("Zen [PAUSED]")
             while True:
                 if not stopped:
                     root.update()
@@ -361,7 +361,7 @@ def init():
     starting_embed = discord_webhook.DiscordEmbed(
         description="**Macro started!**",
         timestamp=datetime.datetime.now(datetime.timezone.utc))
-    starting_embed.set_author(name="Zen", icon_url="https://cvmet.github.io/biome_thumb/zen.png")
+    starting_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
     if multi_webhook.get() != "1":
         if "discord.com" not in webhookURL.get() or "https://" not in webhookURL.get():
             popup("Invalid or missing webhook link.", "Error")
@@ -436,7 +436,7 @@ start_button.grid(row=1, column=0, padx=(10, 0), pady=(10, 0), sticky="w")
 stop_button = customtkinter.CTkButton(root, text="Stop", font=customtkinter.CTkFont(family="Segoe UI", size=20, weight="bold"), width=75, command=stop)
 stop_button.grid(row=1, column=1, padx=(5, 0), pady=(10, 0), sticky="w")
 
-comet_pfp = customtkinter.CTkImage(dark_image=Image.open("cvmet.png"), size=(100, 100))
+comet_pfp = customtkinter.CTkImage(dark_image=Image.open("cm3t.png"), size=(100, 100))
 comet_pfp_label = customtkinter.CTkLabel(tabview.tab("Credits"), image=comet_pfp, text="")
 comet_pfp_label.grid(row=0, column=0, padx=(10, 0), pady=(10, 0), sticky="w")
 
@@ -447,12 +447,12 @@ zen_label.grid(row=0, column=1, padx=(10, 0), pady=(10, 0), sticky="w")
 credits_frame = customtkinter.CTkFrame(tabview.tab("Credits"))
 credits_frame.grid(row=0, column=2, padx=(10, 0), pady=(10, 0), sticky="w")
 
-comet_label = customtkinter.CTkLabel(credits_frame, text="cvmet - Creator", font=customtkinter.CTkFont(family="Segoe UI", size=14, weight="bold"))
+comet_label = customtkinter.CTkLabel(credits_frame, text="cm3t - Creator", font=customtkinter.CTkFont(family="Segoe UI", size=14, weight="bold"))
 comet_label.grid(row=0, column=0, padx=(10, 0), sticky="nw")
 
 comet_link = customtkinter.CTkLabel(credits_frame, text="GitHub", font=("Segoe UI", 14, "underline"), text_color="dodgerblue", cursor="pointinghand")
 comet_link.grid(row=1, column=0, padx=(10, 0), sticky="nw")
-comet_link.bind("<Button-1>", lambda e: open_url("https://github.com/cvmet"))
+comet_link.bind("<Button-1>", lambda e: open_url("https://github.com/cm3t"))
 
 sniper_label = customtkinter.CTkLabel(credits_frame, text="Zen", font=customtkinter.CTkFont(family="Segoe UI", size=14, weight="bold"))
 sniper_label.grid(row=2, column=0, padx=(10, 0), sticky="nw")
