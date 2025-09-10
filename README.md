@@ -4,7 +4,7 @@
 
 # How to install?
 Go to **https://www.python.org/** and install the latest version of Python.
-Then, open a console and navigate to the macro folder.
+Then, open a console and navigate to the macro folder you just unzipped from the ZIP you downloaded.
 
 Once there, type the following into your terminal:
 `pip3 install -r requirements.txt`
