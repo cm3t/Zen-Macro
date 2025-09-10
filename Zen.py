@@ -32,14 +32,14 @@ def popup(message, title):
 
     subprocess.call("osascript -e '{}'".format(applescript), shell=True)
 
-def notify(title, text):
-  subprocess.call(['osascript', '-e', CMD, title, text])
-
 CMD = '''
 on run argv
   display notification (item 2 of argv) with title (item 1 of argv)
 end run
 '''
+
+def notify(title, text):
+  subprocess.call(['osascript', '-e', CMD, title, text])
 
 # Example uses:
 def my_handler(types, value, tb):
