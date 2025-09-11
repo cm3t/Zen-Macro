@@ -89,6 +89,7 @@ webhook_urls = webhook_urls_string.get().split()
 roblox_open = False
 log_directory = platformdirs.user_log_dir("Roblox", None)
 biome_colors = {"NORMAL": "ffffff", "SAND STORM": "F4C27C", "HELL": "5C1219", "STARFALL": "6784E0", "CORRUPTION": "9042FF", "NULL": "000000", "GLITCHED": "65FF65", "WINDY": "91F7FF", "SNOWY": "C4F5F6", "RAINY": "4385FF", "DREAMSPACE": "ff7dff", "BLAZING SUN": "ffee8c"}
+biome_times = {"SAND STORM": 600, "HELL": 660, "STARFALL": 600, "CORRUPTION": 660, "NULL": 99, "GLITCHED": 164, "WINDY": 120, "SNOWY": 120, "RAINY": 120, "DREAMSPACE": 128, "BLAZING SUN": 180}
 started = False
 stopped = False
 destroyed = False
@@ -209,10 +210,9 @@ def check_for_hover_text(file):
                                             pass
                                     else:
                                         print(time.strftime('%H:%M:%S') + f": Biome Started - {event}")
-                                        embed = discord_webhook.DiscordEmbed(
-                                            timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                            color=biome_colors[event],
-                                            description="> ## Biome Started - " + event + "\n> " + psURL.get())
+                                        embed = discord_webhook.DiscordEmbed(timestamp=datetime.datetime.now(datetime.timezone.utc), color=biome_colors[event])
+                                        biomeEndingTime = int(time.time()) + biome_times[event]
+                                        embed.description = "> ## Biome Started - " + event + "\n> [Join Private Server](" + psURL.get() + ")\n> -# Ends <t:" + str(biomeEndingTime) + ":R>"
                                         embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/" + event.replace(" ", "%20") + ".png")
                                         embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                         webhook.add_embed(embed)
@@ -237,12 +237,11 @@ def check_for_hover_text(file):
                                         else:
                                             pass
                                     else:
-                                        print(time.strftime('%H:%M:%S') + f": Biome Started - {event}")              
+                                        print(time.strftime('%H:%M:%S') + f": Biome Started - {event}")
+                                        biomeEndingTime = int(time.time()) + biome_times[event]            
                                         for url in webhook_urls:
-                                            embed = discord_webhook.DiscordEmbed(
-                                                timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                                color=biome_colors[event],
-                                                description="> ## Biome Started - " + event + "\n> " + psURL.get())
+                                            embed = discord_webhook.DiscordEmbed(timestamp=datetime.datetime.now(datetime.timezone.utc), color=biome_colors[event])
+                                            embed.description = "> ## Biome Started - " + event + "\n> [Join Private Server](" + psURL.get() + ")\n> -# Ends <t:" + str(biomeEndingTime) + ":R>"
                                             embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/" + event.replace(" ", "%20") + ".png")
                                             embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                             webhook = discord_webhook.DiscordWebhook(url=url)
