@@ -473,7 +473,7 @@ support_link = customtkinter.CTkLabel(credits_frame, text="V1.0", font=("Segoe U
 support_link.grid(row=3, column=0, padx=(10, 0), sticky="nw")
 # support_link.bind("<Button-1>", lambda e: open_url("https://discord.gg/solsniper"))
 
-detection_toggle = customtkinter.CTkCheckBox(tabview.tab("Macro"), text="Aura Detection [Experimental]", font=customtkinter.CTkFont(family="Segoe UI", size=20), variable=aura_detection, command=auradetection_toggle_update)
+detection_toggle = customtkinter.CTkCheckBox(tabview.tab("Macro"), text="Aura Detection", font=customtkinter.CTkFont(family="Segoe UI", size=20), variable=aura_detection, command=auradetection_toggle_update)
 detection_toggle.grid(row=0, column=0, columnspan=2, padx=(10, 0), pady=(10, 0), sticky="w")
 
 root.bind("<Destroy>", lambda event: x_stop())

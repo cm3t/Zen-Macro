@@ -31,3 +31,17 @@
 2025-09-10 19:28:20,615 - INFO - Using log file: /Users/sxla/Library/Logs/Roblox/0.689.0.6890885_20250910T181820Z_Player_7f882_last.log
 2025-09-10 19:29:09,469 - INFO - Roblox is open.
 2025-09-10 19:29:14,476 - INFO - Using log file: /Users/sxla/Library/Logs/Roblox/0.689.0.6890885_20250910T181820Z_Player_7f882_last.log
+2025-09-11 17:35:53,949 - INFO - Config file not found, creating one...
+2025-09-11 17:37:20,225 - ERROR - Uncaught exception: 'Webhook'
+NoneType: None
+2025-09-11 17:37:26,386 - ERROR - Uncaught exception: 'Webhook'
+NoneType: None
+2025-09-11 17:37:31,145 - ERROR - Uncaught exception: 'Webhook'
+NoneType: None
+2025-09-11 17:37:39,416 - ERROR - Uncaught exception: 'Webhook'
+NoneType: None
+2025-09-11 17:38:20,954 - ERROR - Uncaught exception: 'Webhook'
+NoneType: None
+2025-09-11 17:39:11,541 - ERROR - Uncaught exception: 'Webhook'
+NoneType: None
+2025-09-11 17:39:46,619 - INFO - Config file not found, creating one...
