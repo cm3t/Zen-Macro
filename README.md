@@ -16,7 +16,7 @@ Once there, type the following into your terminal:
 If that doesn't work, try:
 `pip install -r requirements.txt`
 
-**If you want to enable Roll, Jester and Eden detection (Patching Roblox):**
+**If you want to enable Roll, Merchant and Eden detection (Patching Roblox):**
 - Navigate to `/Applications/Roblox.app/Contents/MacOS/`
 - Make a new directory called `ClientSettings`.
 - In that directory, create a file called `ClientAppSettings.json`.
