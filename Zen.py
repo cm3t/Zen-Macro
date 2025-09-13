@@ -154,14 +154,6 @@ def stop():
         sys.exit()
     stopped = True
 
-def pause():
-    global paused
-    paused = not paused
-    if paused:
-        root.title("maxstellar's Biome Macro - Paused")
-    else:
-        root.title("maxstellar's Biome Macro - Running")
-
 if multi_webhook == "1":
     if len(webhook_urls) < 2:
         popup("there's no reason to use multi-webhook... without multiple webhooks??", "bruh are you serious")
@@ -387,6 +379,39 @@ def check_for_hover_text(file):
                                         webhook.execute()
                                     if aura_notif.get() == 1:
                                         notify("Zen", "You rolled " + aura + "!")
+                        elif aura_detection.get() == 1 and "The Blinding Light has devoured" in line:
+                            if roblox_username in line:
+                                if multi_webhook.get() != "1":
+                                    webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
+                                    print(time.strftime('%H:%M:%S') + f": Aura Rolled - Luminosity")
+                                    embed = discord_webhook.DiscordEmbed(
+                                        timestamp=datetime.datetime.now(datetime.timezone.utc),
+                                        description=f"> ## The Blinding Light has devoured {roblox_username}\n> **1 in 1,200,000,000**",
+                                        color="98b7e0")
+                                    embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
+                                    embed.set_thumbnail(url=aura_images['luminosity'])
+                                    webhook.add_embed(embed)
+                                    if aura_ping.get() == 1:
+                                        webhook.set_content(f"<@{discID.get()}>")
+                                    webhook.execute()
+                                    if aura_notif.get() == 1:
+                                        notify("Zen", "You rolled Luminosity!")
+                                else:
+                                    print(time.strftime('%H:%M:%S') + f": Aura Rolled - Luminosity")
+                                    for url in webhook_urls:
+                                        webhook = discord_webhook.DiscordWebhook(url=url)
+                                        embed = discord_webhook.DiscordEmbed(
+                                            timestamp=datetime.datetime.now(datetime.timezone.utc),
+                                            description=f"> ## The Blinding Light has devoured {roblox_username}\n> **1 in 1,200,000,000**",
+                                            color="98b7e0")
+                                        embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
+                                        embed.set_thumbnail(url=aura_images['luminosity'])
+                                        webhook.add_embed(embed)
+                                        if aura_ping.get() == 1:
+                                            webhook.set_content(f"<@{discID.get()}>")
+                                        webhook.execute()
+                                    if aura_notif.get() == 1:
+                                        notify("Zen", "You rolled Luminosity!")
                         elif aura_detection.get() == 1 and "The Blinding Light has devoured" in line:
                             if roblox_username in line:
                                 if multi_webhook.get() != "1":
