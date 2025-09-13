@@ -45,3 +45,27 @@ NoneType: None
 2025-09-11 17:39:11,541 - ERROR - Uncaught exception: 'Webhook'
 NoneType: None
 2025-09-11 17:39:46,619 - INFO - Config file not found, creating one...
+2025-09-12 20:18:32,909 - ERROR - Uncaught exception: 'discord_user_id'
+NoneType: None
+2025-09-12 20:18:47,879 - INFO - Config file not found, creating one...
+2025-09-12 20:18:47,941 - ERROR - Uncaught exception: 'min_rarity_to_ping'
+NoneType: None
+2025-09-12 20:19:44,129 - INFO - Config file not found, creating one...
+2025-09-12 20:23:44,738 - ERROR - Uncaught exception: 'Webhook'
+NoneType: None
+2025-09-12 20:24:19,111 - INFO - Config file not found, creating one...
+2025-09-12 20:28:01,922 - INFO - Roblox is open.
+2025-09-12 20:28:06,928 - INFO - Using log file: /Users/sxla/Library/Logs/Roblox/0.690.0.6900721_20250912T165034Z_Player_25a98_last.log
+2025-09-12 20:42:13,575 - ERROR - Uncaught exception: 'Webhook'
+NoneType: None
+2025-09-12 20:42:37,945 - INFO - Config file not found, creating one...
+2025-09-13 12:17:23,986 - INFO - Roblox is open.
+2025-09-13 12:17:28,994 - INFO - Using log file: /Users/sxla/Library/Logs/Roblox/0.690.0.6900721_20250913T111511Z_Player_d1c11_last.log
+2025-09-13 12:19:14,020 - INFO - Roblox is open.
+2025-09-13 12:19:19,026 - INFO - Using log file: /Users/sxla/Library/Logs/Roblox/0.690.0.6900721_20250913T111511Z_Player_d1c11_last.log
+2025-09-13 12:29:15,854 - INFO - Roblox is open.
+2025-09-13 12:29:20,860 - INFO - Using log file: /Users/sxla/Library/Logs/Roblox/0.690.0.6900721_20250913T111511Z_Player_d1c11_last.log
+2025-09-13 12:36:18,351 - INFO - Roblox is open.
+2025-09-13 12:36:23,377 - INFO - Using log file: /Users/sxla/Library/Logs/Roblox/0.690.0.6900721_20250913T113016Z_Player_7d132_last.log
+2025-09-13 12:38:53,655 - INFO - Roblox is open.
+2025-09-13 12:38:58,660 - INFO - Using log file: /Users/sxla/Library/Logs/Roblox/0.690.0.6900721_20250913T113016Z_Player_7d132_last.log
