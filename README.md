@@ -22,3 +22,5 @@ If that doesn't work, try:
 - In that directory, create a file called `ClientAppSettings.json`.
 - In that file, paste in `{"FStringDebugLuaLogLevel": "debug", "FStringDebugLuaLogPattern": "ExpChat/mountClientApp"}` and save it.
 - After that, restart the macro and Roblox if they are open.
+
+Also, you should open `config.ini` and set **username_override** to **your roblox username**.
