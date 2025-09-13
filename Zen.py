@@ -426,7 +426,7 @@ def check_for_hover_text(file):
                                 print(time.strftime('%H:%M:%S') + f": Jester has arrived!")
                                 embed = discord_webhook.DiscordEmbed(
                                     timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                    description=f"> ## Jester has arrived!\n<t:{int(time.time())}:R>\n\n{psURL.get()}",
+                                    description=f"> ## Jester has arrived!\n<t:{int(time.time())}:R>\n[Join Private Server]({psURL.get()})",
                                     color="a352ff"
                                 )
                                 embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
@@ -441,12 +441,42 @@ def check_for_hover_text(file):
                                     webhook = discord_webhook.DiscordWebhook(url=url)
                                     embed = discord_webhook.DiscordEmbed(
                                         timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                        description=f"> ## Jester has arrived!\n<t:{int(time.time())}:R>\n\n{psURL.get()}",
+                                        description=f"> ## Jester has arrived!\n<t:{int(time.time())}:R>\n[Join Private Server]({psURL.get()})",
                                         color="a352ff"
                                     )
                                     embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     embed.set_thumbnail(
                                         url="https://static.wikia.nocookie.net/sol-rng/images/d/db/Headshot_of_Jester.png/revision/latest?cb=20240630142936")
+                                    webhook.add_embed(embed)
+                                    webhook.set_content(f"<@{discID.get()}>")
+                                    webhook.execute()
+                        elif "[Merchant]: Mari has arrived on the island..." in line:
+                            if multi_webhook.get() != "1":
+                                webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
+                                print(time.strftime('%H:%M:%S') + f": Mari has arrived!")
+                                embed = discord_webhook.DiscordEmbed(
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
+                                    description=f"> ## Mari has arrived!\n<t:{int(time.time())}:R>\n[Join Private Server]({psURL.get()})",
+                                    color="c49345"
+                                )
+                                embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
+                                embed.set_thumbnail(
+                                    url="https://static.wikia.nocookie.net/sol-rng/images/3/37/MARI_HIGH_QUALITYY.png/revision/latest?cb=20240704045119")
+                                webhook.add_embed(embed)
+                                webhook.set_content(f"<@{discID.get()}>")
+                                webhook.execute()
+                            else:
+                                print(time.strftime('%H:%M:%S') + f": Mari has arrived!")
+                                for url in webhook_urls:
+                                    webhook = discord_webhook.DiscordWebhook(url=url)
+                                    embed = discord_webhook.DiscordEmbed(
+                                        timestamp=datetime.datetime.now(datetime.timezone.utc),
+                                        description=f"> ## Mari has arrived!\n<t:{int(time.time())}:R>\n[Join Private Server]({psURL.get()})",
+                                        color="c49345"
+                                    )
+                                    embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
+                                    embed.set_thumbnail(
+                                        url="https://static.wikia.nocookie.net/sol-rng/images/3/37/MARI_HIGH_QUALITYY.png/revision/latest?cb=20240704045119")
                                     webhook.add_embed(embed)
                                     webhook.set_content(f"<@{discID.get()}>")
                                     webhook.execute()
