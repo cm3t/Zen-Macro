@@ -689,20 +689,16 @@ discid_field = customtkinter.CTkEntry(tabview.tab("Webhook"), font=customtkinter
                                       width=324, textvariable=discID)
 discid_field.grid(row=2, column=1, padx=(155, 0), pady=(23, 0), sticky="w")
 
-patch_button = customtkinter.CTkButton(root, text="Patch",
-                                      font=customtkinter.CTkFont(family="Segoe UI", size=20, weight="bold"), width=75,
-                                      command=patch_roblox)
-patch_button.grid(row=1, column=3, padx=(5, 0), pady=(10, 0), sticky="w")
+# patch_button = customtkinter.CTkButton(root, text="Patch",
+#                                       font=customtkinter.CTkFont(family="Segoe UI", size=20, weight="bold"), width=75,
+#                                       command=patch_roblox)
+# patch_button.grid(row=1, column=3, padx=(5, 0), pady=(10, 0), sticky="w")
 
 start_button = customtkinter.CTkButton(root, text="Start",
                                        font=customtkinter.CTkFont(family="Segoe UI", size=20, weight="bold"), width=75,
                                        command=init)
 start_button.grid(row=1, column=0, padx=(10, 0), pady=(10, 0), sticky="w")
 
-pause_button = customtkinter.CTkButton(root, text="Pause",
-                                       font=customtkinter.CTkFont(family="Segoe UI", size=20, weight="bold"), width=75,
-                                       command=pause)
-pause_button.grid(row=1, column=1, padx=(5, 0), pady=(10, 0), sticky="w")
 
 stop_button = customtkinter.CTkButton(root, text="Stop",
                                       font=customtkinter.CTkFont(family="Segoe UI", size=20, weight="bold"), width=75,
