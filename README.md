@@ -17,10 +17,10 @@ If that doesn't work, try:
 `pip install -r requirements.txt`
 
 **If you want to enable Roll, Merchant and Eden detection (Patching Roblox):**
-- Navigate to `/Applications/Roblox.app/Contents/MacOS/`
-- Make a new directory called `ClientSettings`.
-- In that directory, create a file called `ClientAppSettings.json`.
-- In that file, paste in `{"FStringDebugLuaLogLevel": "debug", "FStringDebugLuaLogPattern": "ExpChat/mountClientApp"}` and save it.
-- After that, restart the macro and Roblox if they are open.
+Navigate to `/Applications/Roblox.app/Contents/MacOS/`
+Make a new directory called `ClientSettings`.
+In that directory, create a file called `ClientAppSettings.json`.
+In that file, paste in `{"FStringDebugLuaLogLevel": "debug", "FStringDebugLuaLogPattern": "ExpChat/mountClientApp"}` and save it.
+After that, restart the macro and Roblox if they are open.
 
 Also, you should open `config.ini` and set **username_override** to **your roblox username**.
