@@ -88,7 +88,7 @@ if not os.path.exists(config_name):
     logger.info("Config file not found, creating one...")
     print("Config file not found, creating one...")
     config['Webhook'] = {'webhook_url': "", 'private_server': "", "discord_user_id": "",  'multi_webhook': "0", 'multi_webhook_urls': ""}
-    config['Macro'] = {'aura_detection': "0", 'username_override': "", 'last_roblox_version': "", 'aura_notif': "0", 'aura_ping': "0", 'jester': "0", "min_rarity_to_ping": ""}
+    config['Macro'] = {'aura_detection': "0", 'username_override': "", 'last_roblox_version': "", 'aura_notif': "0", 'aura_ping': "0"}
     with open(config_name, 'w') as configfile:
         config.write(configfile)
 config.read(config_name)
@@ -118,7 +118,6 @@ tlw_open = False
 aura_detection = customtkinter.IntVar(root, int(config['Macro']['aura_detection']))
 aura_notif = customtkinter.IntVar(root, int(config['Macro']['aura_notif']))
 aura_ping = customtkinter.IntVar(root, int(config['Macro']['aura_ping']))
-jester = customtkinter.StringVar(root, config['Macro']['jester'])
 roblox_username = config['Macro']['username_override']
 
 
@@ -359,11 +358,10 @@ def check_for_hover_text(file):
                                     webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
                                     print(time.strftime('%H:%M:%S') + f": Aura Rolled - {aura}")
                                     embed = discord_webhook.DiscordEmbed(
-                                        title="[" + time.strftime('%H:%M:%S') + "]",
-                                        description="> ## You rolled " + aura + "!\n**Chance of 1 in " + rarity + "**",
+                                        timestamp=datetime.datetime.now(datetime.timezone.utc),
+                                        description="> ## You rolled " + aura + "!\n> **1 in " + rarity + "**",
                                         color=message_color)
-                                    embed.set_footer(text="maxstellar's Biome Macro | v2.0.3",
-                                        icon_url="https://maxstellar.github.io/maxstellar.png")
+                                    embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     embed.set_thumbnail(url=aura_images[aura.lower()])
                                     webhook.add_embed(embed)
                                     if aura_ping.get() == 1:
@@ -376,11 +374,12 @@ def check_for_hover_text(file):
                                     for url in webhook_urls:
                                         webhook = discord_webhook.DiscordWebhook(url=url)
                                         embed = discord_webhook.DiscordEmbed(
-                                            title="[" + time.strftime('%H:%M:%S') + "]",
-                                            description="> ## You rolled " + aura + "!\n**Chance of 1 in " + rarity + "**",
-                                            color=message_color)
-                                        embed.set_footer(text="maxstellar's Biome Macro | v2.0.3",
-                                            icon_url="https://maxstellar.github.io/maxstellar.png")
+                                            timestamp=datetime.datetime.now(datetime.timezone.utc),
+                                            description="> ## You rolled " + aura + "!\n> **1 in " + rarity + "**",
+                                            color=message_color
+                                        )
+                                        embed.description = "> ## You rolled " + aura + "!\n> **1 in " + rarity + "**"
+                                        embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                         embed.set_thumbnail(url=aura_images[aura.lower()])
                                         webhook.add_embed(embed)
                                         if aura_ping.get() == 1:
@@ -394,11 +393,10 @@ def check_for_hover_text(file):
                                     webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
                                     print(time.strftime('%H:%M:%S') + f": Aura Rolled - Luminosity")
                                     embed = discord_webhook.DiscordEmbed(
-                                        title="[" + time.strftime('%H:%M:%S') + "]",
-                                        description=f"> ## The Blinding Light has devoured {roblox_username}\n**Chance of 1 in 1,200,000,000**",
+                                        timestamp=datetime.datetime.now(datetime.timezone.utc),
+                                        description=f"> ## The Blinding Light has devoured {roblox_username}\n> **1 in 1,200,000,000**",
                                         color="98b7e0")
-                                    embed.set_footer(text="maxstellar's Biome Macro | v2.0.3",
-                                        icon_url="https://maxstellar.github.io/maxstellar.png")
+                                    embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     embed.set_thumbnail(url=aura_images['luminosity'])
                                     webhook.add_embed(embed)
                                     if aura_ping.get() == 1:
@@ -411,29 +409,27 @@ def check_for_hover_text(file):
                                     for url in webhook_urls:
                                         webhook = discord_webhook.DiscordWebhook(url=url)
                                         embed = discord_webhook.DiscordEmbed(
-                                            title="[" + time.strftime('%H:%M:%S') + "]",
-                                            description=f"> ## The Blinding Light has devoured {roblox_username}\n**Chance of 1 in 1,200,000,000**",
+                                            timestamp=datetime.datetime.now(datetime.timezone.utc),
+                                            description=f"> ## The Blinding Light has devoured {roblox_username}\n> **1 in 1,200,000,000**",
                                             color="98b7e0")
-                                        embed.set_footer(text="maxstellar's Biome Macro | v2.0.3",
-                                            icon_url="https://maxstellar.github.io/maxstellar.png")
+                                        embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                         embed.set_thumbnail(url=aura_images['luminosity'])
                                         webhook.add_embed(embed)
                                         if aura_ping.get() == 1:
                                             webhook.set_content(f"<@{discID.get()}>")
                                         webhook.execute()
                                     if aura_notif.get() == 1:
-                                            notify("Zen", "You rolled Luminosity!")
+                                        notify("Zen", "You rolled Luminosity!")
                         elif "[Merchant]: Jester has arrived on the island!!" in line:
                             if multi_webhook.get() != "1":
                                 webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
                                 print(time.strftime('%H:%M:%S') + f": Jester has arrived!")
                                 embed = discord_webhook.DiscordEmbed(
-                                    title="[" + time.strftime('%H:%M:%S') + "]",
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     description=f"> ## Jester has arrived!\n<t:{int(time.time())}:R>\n\n{psURL.get()}",
                                     color="a352ff"
                                 )
-                                embed.set_footer(text="maxstellar's Biome Macro | v2.0.3",
-                                    icon_url="https://maxstellar.github.io/maxstellar.png")
+                                embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                 embed.set_thumbnail(
                                     url="https://static.wikia.nocookie.net/sol-rng/images/d/db/Headshot_of_Jester.png/revision/latest?cb=20240630142936")
                                 webhook.add_embed(embed)
@@ -444,12 +440,11 @@ def check_for_hover_text(file):
                                 for url in webhook_urls:
                                     webhook = discord_webhook.DiscordWebhook(url=url)
                                     embed = discord_webhook.DiscordEmbed(
-                                        title="[" + time.strftime('%H:%M:%S') + "]",
+                                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                                         description=f"> ## Jester has arrived!\n<t:{int(time.time())}:R>\n\n{psURL.get()}",
                                         color="a352ff"
                                     )
-                                    embed.set_footer(text="maxstellar's Biome Macro | v2.0.3",
-                                        icon_url="https://maxstellar.github.io/maxstellar.png")
+                                    embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     embed.set_thumbnail(
                                         url="https://static.wikia.nocookie.net/sol-rng/images/d/db/Headshot_of_Jester.png/revision/latest?cb=20240630142936")
                                     webhook.add_embed(embed)
@@ -460,12 +455,11 @@ def check_for_hover_text(file):
                                 webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
                                 print(time.strftime('%H:%M:%S') + ": Eden has appeared somewhere in The Limbo.")
                                 embed = discord_webhook.DiscordEmbed(
-                                    title="[" + time.strftime('%H:%M:%S') + "]",
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     description="> ## Eden has appeared somewhere in The Limbo.",
                                     color="000000"
                                 )
-                                embed.set_footer(text="maxstellar's Biome Macro | v2.0.3",
-                                    icon_url="https://maxstellar.github.io/maxstellar.png")
+                                embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                 embed.set_thumbnail(
                                     url="https://maxstellar.github.io/biome_thumb/eden.png")
                                 webhook.add_embed(embed)
@@ -476,12 +470,11 @@ def check_for_hover_text(file):
                                 for url in webhook_urls:
                                     webhook = discord_webhook.DiscordWebhook(url=url)
                                     embed = discord_webhook.DiscordEmbed(
-                                        title="[" + time.strftime('%H:%M:%S') + "]",
+                                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                                         description="> ## Eden has appeared somewhere in The Limbo.",
                                         color="000000"
                                     )
-                                    embed.set_footer(text="maxstellar's Biome Macro | v2.0.3",
-                                        icon_url="https://maxstellar.github.io/maxstellar.png")
+                                    embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     embed.set_thumbnail(
                                         url="https://maxstellar.github.io/biome_thumb/eden.png")
                                     webhook.add_embed(embed)
@@ -573,7 +566,7 @@ def init():
 
     # start webhook
     starting_embed = discord_webhook.DiscordEmbed(
-        description="**Macro started!**\n-# Macro Version: v1.1.0 BETA",
+        description="**Macro started!**\n-# Macro Version: v1.1.0",
         timestamp=datetime.datetime.now(datetime.timezone.utc))
     starting_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
     if multi_webhook.get() != "1":
@@ -738,7 +731,7 @@ comet_link.bind("<Button-1>", lambda e: open_url("https://github.com/cm3t"))
 sniper_label = customtkinter.CTkLabel(credits_frame, text="Zen", font=customtkinter.CTkFont(family="Segoe UI", size=14, weight="bold"))
 sniper_label.grid(row=2, column=0, padx=(10, 0), sticky="nw")
 
-support_link = customtkinter.CTkLabel(credits_frame, text="v1.1.0 BETA", font=("Segoe UI", 14))
+support_link = customtkinter.CTkLabel(credits_frame, text="v1.1.0", font=("Segoe UI", 14))
 support_link.grid(row=3, column=0, padx=(10, 0), sticky="nw")
 # support_link.bind("<Button-1>", lambda e: open_url("https://discord.gg/solsniper"))
 
@@ -756,18 +749,6 @@ detectping_toggle = customtkinter.CTkCheckBox(tabview.tab("Macro"), text="Aura P
                                               font=customtkinter.CTkFont(family="Segoe UI", size=20),
                                               variable=aura_ping, command=auraping_toggle_update)
 detectping_toggle.grid(row=2, column=0, columnspan=2, padx=(10, 0), pady=(12, 0), sticky="w")
-detectping_field = customtkinter.CTkEntry(tabview.tab("Macro"), font=customtkinter.CTkFont(family="Segoe UI", size=20),
-                                          width=155, textvariable=None, placeholder_text="Minimum Rarity")
-detectping_field.grid(row=2, column=1, padx=(130, 0), pady=(10, 0), sticky="w")
-
-jester_toggle = customtkinter.CTkCheckBox(tabview.tab("Macro"), text="Jester Notifications",
-                                              font=customtkinter.CTkFont(family="Segoe UI", size=20),
-                                              variable=jester, command=jester_toggle_update)
-jester_toggle.grid(row=3, column=0, columnspan=2, padx=(10, 0), pady=(12, 0), sticky="w")
-
-min_rarity_to_ping = config['Macro']['min_rarity_to_ping']
-if min_rarity_to_ping != "":
-    detectping_field.insert(0, min_rarity_to_ping)
 
 root.bind("<Destroy>", lambda event: x_stop())
 root.bind("<Button-1>", lambda e: e.widget.focus_set())
