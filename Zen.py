@@ -495,7 +495,7 @@ def check_for_hover_text(file):
                                 print(time.strftime('%H:%M:%S') + f": Jester has arrived!")
                                 embed = discord_webhook.DiscordEmbed(
                                     timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                    description=f"> ## Jester has arrived!\n-# <t:{int(time.time())}:R>\n[Join Private Server]({psURL.get()})",
+                                    description=f"> ## Jester has arrived!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
                                     color="a352ff"
                                 )
                                 embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
@@ -510,7 +510,7 @@ def check_for_hover_text(file):
                                     webhook = discord_webhook.DiscordWebhook(url=url)
                                     embed = discord_webhook.DiscordEmbed(
                                         timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                        description=f"> ## Jester has arrived!\n<t:{int(time.time())}:R>\n[Join Private Server]({psURL.get()})",
+                                        description=f"> ## Jester has arrived!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
                                         color="a352ff"
                                     )
                                     embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
@@ -555,7 +555,7 @@ def check_for_hover_text(file):
                             print(time.strftime('%H:%M:%S') + f": Mari has arrived!")
                             embed = discord_webhook.DiscordEmbed(
                                 timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                description=f"> ## Mari has arrived!\n<t:{int(time.time())}:R>\n[Join Private Server]({psURL.get()})",
+                                description=f"> ## Mari has arrived!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
                                 color="c49345"
                             )
                             embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
@@ -570,7 +570,7 @@ def check_for_hover_text(file):
                                 webhook = discord_webhook.DiscordWebhook(url=url)
                                 embed = discord_webhook.DiscordEmbed(
                                     timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                    description=f"> ## Mari has arrived!\n<t:{int(time.time())}:R>\n[Join Private Server]({psURL.get()})",
+                                    description=f"> ## Mari has arrived!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
                                     color="c49345"
                                 )
                                 embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
