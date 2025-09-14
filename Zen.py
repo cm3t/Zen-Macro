@@ -665,7 +665,7 @@ def init():
 
     # start webhook
     starting_embed = discord_webhook.DiscordEmbed(
-        description="**Macro started!**\n-# Macro Version: v1.1.1",
+        description="**Macro started!**\n-# Macro Version: v1.1.2",
         timestamp=datetime.datetime.now(datetime.timezone.utc))
     starting_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
     if multi_webhook.get() != "1":
@@ -826,7 +826,7 @@ comet_link.bind("<Button-1>", lambda e: open_url("https://github.com/cm3t"))
 sniper_label = customtkinter.CTkLabel(credits_frame, text="Zen", font=customtkinter.CTkFont(family="Segoe UI", size=14, weight="bold"))
 sniper_label.grid(row=2, column=0, padx=(10, 0), sticky="nw")
 
-support_link = customtkinter.CTkLabel(credits_frame, text="v1.1.1", font=("Segoe UI", 14))
+support_link = customtkinter.CTkLabel(credits_frame, text="v1.1.2", font=("Segoe UI", 14))
 support_link.grid(row=3, column=0, padx=(10, 0), sticky="nw")
 # support_link.bind("<Button-1>", lambda e: open_url("https://discord.gg/solsniper"))
 
