@@ -357,6 +357,8 @@ def check_for_hover_text(file):
                                         embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/MYTHIC.png")
                                     elif message_color == "340cfc":
                                         embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/EXALTED.png")
+                                    elif message_color == "ff3892":
+                                        embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/GLORIOUS.png")
                                     else:
                                         embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/ANY.png")
                                     # embed.set_thumbnail(url=aura_images[aura.lower()])
@@ -381,6 +383,8 @@ def check_for_hover_text(file):
                                             embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/MYTHIC.png")
                                         elif message_color == "200cff":
                                             embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/EXALTED.png")
+                                        elif message_color == "ff3892":
+                                            embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/GLORIOUS.png")
                                         else:
                                             embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/ANY.png")
                                         # embed.set_thumbnail(url=aura_images[aura.lower()])
