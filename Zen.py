@@ -12,7 +12,13 @@ from PIL import Image
 import subprocess
 import platformdirs
 import datetime
-
+print("""
+      Zen Macro (by cm3t)
+      
+      [DEBUG INFO]
+      Version: v1.1.3 (15 September 2025)
+      Support: https://discord.gg/solsniper
+      """)
 logging.basicConfig(
     filename='crash.log',  # Optional: Specify a file to log to
     level=logging.INFO,  # Set the minimum level for logging (DEBUG, INFO, WARNING, ERROR, CRITICAL)
@@ -355,7 +361,7 @@ def check_for_hover_text(file):
                                     embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     if message_color == "ff73fd":
                                         embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/MYTHIC.png")
-                                    elif message_color == "340cfc":
+                                    elif message_color == "200cff":
                                         embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/EXALTED.png")
                                     elif message_color == "ff3892":
                                         embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/GLORIOUS.png")
@@ -496,30 +502,30 @@ def check_for_hover_text(file):
                         elif "[Merchant]: Jester has arrived on the island!!" in line:
                             if multi_webhook.get() != "1":
                                 webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
-                                print(time.strftime('%H:%M:%S') + f": Jester has arrived!")
+                                print(time.strftime('%H:%M:%S') + f": Jester Spawned!")
                                 embed = discord_webhook.DiscordEmbed(
                                     timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                    description=f"> ## Jester has arrived!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
+                                    description=f"> ## Jester Spawned!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
                                     color="a352ff"
                                 )
                                 embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                 embed.set_thumbnail(
-                                    url="https://static.wikia.nocookie.net/sol-rng/images/d/db/Headshot_of_Jester.png/revision/latest?cb=20240630142936")
+                                    url="https://cm3t.github.io/biome_thumb/JESTER.png")
                                 webhook.add_embed(embed)
                                 webhook.set_content(f"<@{discID.get()}>")
                                 webhook.execute()
                             else:
-                                print(time.strftime('%H:%M:%S') + f": Jester has arrived!")
+                                print(time.strftime('%H:%M:%S') + f": Jester Spawned!")
                                 for url in webhook_urls:
                                     webhook = discord_webhook.DiscordWebhook(url=url)
                                     embed = discord_webhook.DiscordEmbed(
                                         timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                        description=f"> ## Jester has arrived!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
+                                        description=f"> ## Jester Spawned!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
                                         color="a352ff"
                                     )
                                     embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     embed.set_thumbnail(
-                                        url="https://static.wikia.nocookie.net/sol-rng/images/d/db/Headshot_of_Jester.png/revision/latest?cb=20240630142936")
+                                        url="https://cm3t.github.io/biome_thumb/JESTER.png")
                                     webhook.add_embed(embed)
                                     webhook.set_content(f"<@{discID.get()}>")
                                     webhook.execute()
@@ -556,30 +562,30 @@ def check_for_hover_text(file):
                     elif "[Merchant]: Mari has arrived on the island..." in line:
                         if multi_webhook.get() != "1":
                             webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
-                            print(time.strftime('%H:%M:%S') + f": Mari has arrived!")
+                            print(time.strftime('%H:%M:%S') + f": Mari Spawned!")
                             embed = discord_webhook.DiscordEmbed(
                                 timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                description=f"> ## Mari has arrived!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
+                                description=f"> ## Mari Spawned!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
                                 color="c49345"
                             )
                             embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                             embed.set_thumbnail(
-                                url="https://static.wikia.nocookie.net/sol-rng/images/3/37/MARI_HIGH_QUALITYY.png/revision/latest?cb=20240704045119")
+                                url="https://cm3t.github.io/biome_thumb/MARI.png")
                             webhook.add_embed(embed)
                             webhook.set_content(f"<@{discID.get()}>")
                             webhook.execute()
                         else:
-                            print(time.strftime('%H:%M:%S') + f": Mari has arrived!")
+                            print(time.strftime('%H:%M:%S') + f": Mari Spawned!")
                             for url in webhook_urls:
                                 webhook = discord_webhook.DiscordWebhook(url=url)
                                 embed = discord_webhook.DiscordEmbed(
                                     timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                    description=f"> ## Mari has arrived!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
+                                    description=f"> ## Mari Spawned!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
                                     color="c49345"
                                 )
                                 embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                 embed.set_thumbnail(
-                                    url="https://static.wikia.nocookie.net/sol-rng/images/3/37/MARI_HIGH_QUALITYY.png/revision/latest?cb=20240704045119")
+                                    url="https://cm3t.github.io/biome_thumb/MARI.png")
                                 webhook.add_embed(embed)
                                 webhook.set_content(f"<@{discID.get()}>")
                                 webhook.execute()
@@ -669,7 +675,7 @@ def init():
 
     # start webhook
     starting_embed = discord_webhook.DiscordEmbed(
-        description="**Macro started!**\n-# Macro Version: v1.1.2",
+        description="**Macro started!**\n-# Macro Version: v1.1.3",
         timestamp=datetime.datetime.now(datetime.timezone.utc))
     starting_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
     if multi_webhook.get() != "1":
@@ -830,7 +836,7 @@ comet_link.bind("<Button-1>", lambda e: open_url("https://github.com/cm3t"))
 sniper_label = customtkinter.CTkLabel(credits_frame, text="Zen", font=customtkinter.CTkFont(family="Segoe UI", size=14, weight="bold"))
 sniper_label.grid(row=2, column=0, padx=(10, 0), sticky="nw")
 
-support_link = customtkinter.CTkLabel(credits_frame, text="v1.1.2", font=("Segoe UI", 14))
+support_link = customtkinter.CTkLabel(credits_frame, text="v1.1.3", font=("Segoe UI", 14))
 support_link.grid(row=3, column=0, padx=(10, 0), sticky="nw")
 # support_link.bind("<Button-1>", lambda e: open_url("https://discord.gg/solsniper"))
 
