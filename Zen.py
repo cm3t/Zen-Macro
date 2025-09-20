@@ -16,7 +16,7 @@ print("""
       Zen Macro (by cm3t)
       
       [DEBUG INFO]
-      Version: v1.1.3 (15 September 2025)
+      Version: v1.2.0 (20 September 2025)
       Support: https://discord.gg/solsniper
       """)
 logging.basicConfig(
@@ -140,15 +140,15 @@ def stop():
             if "discord.com" in webhookURL.get() and "https://" in webhookURL.get():
                 ending_webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
                 ending_embed = discord_webhook.DiscordEmbed(
-                        description="**Macro stopped.**",
-                        timestamp=datetime.datetime.now(datetime.timezone.utc))
+                    title="`Macro Started`",
+                    timestamp=datetime.datetime.now(datetime.timezone.utc))
                 ending_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                 ending_webhook.add_embed(ending_embed)
                 ending_webhook.execute()
 
         else:
             ending_embed = discord_webhook.DiscordEmbed(
-                description="**Macro stopped.**",
+                title="`Macro Started`",
                 timestamp=datetime.datetime.now(datetime.timezone.utc))
             ending_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
             for url in webhook_urls:
@@ -245,7 +245,7 @@ def check_for_hover_text(file):
                                             embed = discord_webhook.DiscordEmbed(
                                                 timestamp=datetime.datetime.now(datetime.timezone.utc),
                                                 color=biome_colors[last_event],
-                                                description="> ## Biome Ended - " + last_event)
+                                                title=f"`Biome Ended: {last_event}`")
                                             embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/" + last_event.replace(" ", "%20") + ".png")
                                             embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                             webhook.add_embed(embed)
@@ -254,9 +254,9 @@ def check_for_hover_text(file):
                                             pass
                                     else:
                                         print(time.strftime('%H:%M:%S') + f": Biome Started - {event}")
-                                        embed = discord_webhook.DiscordEmbed(timestamp=datetime.datetime.now(datetime.timezone.utc), color=biome_colors[event])
                                         biomeEndingTime = int(time.time()) + biome_times[event]
-                                        embed.description = "> ## Biome Started - " + event + "\n> [Join Private Server](" + psURL.get() + ")\n> -# Ends <t:" + str(biomeEndingTime) + ":R>"
+                                        embed = discord_webhook.DiscordEmbed(title=f"`Biome Started: {event}`",timestamp=datetime.datetime.now(datetime.timezone.utc), color=biome_colors[event])
+                                        embed.description = "\n[Join Server](" + psURL.get() + ")\n-# Ends <t:" + str(biomeEndingTime) + ":R>"
                                         embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/" + event.replace(" ", "%20") + ".png")
                                         embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                         webhook.add_embed(embed)
@@ -273,7 +273,7 @@ def check_for_hover_text(file):
                                                 embed = discord_webhook.DiscordEmbed(
                                                     timestamp=datetime.datetime.now(datetime.timezone.utc),
                                                     color=biome_colors[last_event],
-                                                    description="> ## Biome Ended - " + last_event)
+                                                    title=f"`Biome Ended: {last_event}`")
                                                 embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/" + last_event.replace(" ", "%20") + ".png")
                                                 embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                                 webhook.add_embed(embed)
@@ -284,8 +284,8 @@ def check_for_hover_text(file):
                                         print(time.strftime('%H:%M:%S') + f": Biome Started - {event}")
                                         biomeEndingTime = int(time.time()) + biome_times[event]            
                                         for url in webhook_urls:
-                                            embed = discord_webhook.DiscordEmbed(timestamp=datetime.datetime.now(datetime.timezone.utc), color=biome_colors[event])
-                                            embed.description = "> ## Biome Started - " + event + "\n> [Join Private Server](" + psURL.get() + ")\n> -# Ends <t:" + str(biomeEndingTime) + ":R>"
+                                            embed = discord_webhook.DiscordEmbed(title=f"`Biome Started: {event}`",timestamp=datetime.datetime.now(datetime.timezone.utc), color=biome_colors[event])
+                                            embed.description = "\n[Join Server](" + psURL.get() + ")\n-# Ends <t:" + str(biomeEndingTime) + ":R>"
                                             embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/" + event.replace(" ", "%20") + ".png")
                                             embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                             webhook = discord_webhook.DiscordWebhook(url=url)
@@ -307,10 +307,8 @@ def check_for_hover_text(file):
                                         print(time.strftime('%H:%M:%S') + f": Aura Equipped - {aura}")
                                         embed = discord_webhook.DiscordEmbed(
                                             timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                            description="> ## Aura Equipped - " + aura)
+                                            title=f"`Aura Equipped: {aura}`")
                                         embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
-                                        if aura == "Luminosity" or aura == "EQUINOX" or aura == "Pixelation":
-                                            embed.set_thumbnail(url="https://cm3t.github.io/aura_thumb/" + aura.replace(" ", "%20") + ".png")
                                         webhook.add_embed(embed)
                                         webhook.execute()
                                     else:
@@ -319,10 +317,8 @@ def check_for_hover_text(file):
                                             webhook = discord_webhook.DiscordWebhook(url=url)
                                             embed = discord_webhook.DiscordEmbed(
                                                 timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                                description="> ## Aura Equipped - " + aura)
+                                                title=f"`Aura Equipped: {aura}`")
                                             embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
-                                            if aura == "Luminosity" or aura == "EQUINOX" or aura == "Pixelation":
-                                                embed.set_thumbnail(url="https://cm3t.github.io/aura_thumb/" + aura.replace(" ", "%20") + ".png")
                                             webhook.add_embed(embed)
                                             webhook.execute()
                                 last_aura = aura
@@ -356,7 +352,8 @@ def check_for_hover_text(file):
                                     print(time.strftime('%H:%M:%S') + f": Aura Rolled - {aura}")
                                     embed = discord_webhook.DiscordEmbed(
                                         timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                        description="> ## You rolled " + aura + "!\n> **1 in " + rarity + "**",
+                                        title=f"`You rolled {aura}!`",
+                                        description="**1 in " + rarity + "**",
                                         color=message_color)
                                     embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     if message_color == "ff73fd":
@@ -380,10 +377,9 @@ def check_for_hover_text(file):
                                         webhook = discord_webhook.DiscordWebhook(url=url)
                                         embed = discord_webhook.DiscordEmbed(
                                             timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                            description="> ## You rolled " + aura + "!\n> **1 in " + rarity + "**",
-                                            color=message_color
-                                        )
-                                        embed.description = "> ## You rolled " + aura + "!\n> **1 in " + rarity + "**"
+                                            title=f"`You rolled {aura}!`",
+                                            description="**1 in " + rarity + "**",
+                                            color=message_color)
                                         embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                         if message_color == "ff73fd":
                                             embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/MYTHIC.png")
@@ -407,7 +403,8 @@ def check_for_hover_text(file):
                                     print(time.strftime('%H:%M:%S') + f": Aura Rolled - Luminosity")
                                     embed = discord_webhook.DiscordEmbed(
                                         timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                        description=f"> ## The Blinding Light has devoured {roblox_username}\n> **1 in 1,200,000,000**",
+                                        title=f"`The Blinding Light has devoured {roblox_username}`",
+                                        description="**1 in 1,200,000,000**",
                                         color="98b7e0")
                                     embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/Luminosity.png")
@@ -423,7 +420,8 @@ def check_for_hover_text(file):
                                         webhook = discord_webhook.DiscordWebhook(url=url)
                                         embed = discord_webhook.DiscordEmbed(
                                             timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                            description=f"> ## The Blinding Light has devoured {roblox_username}\n> **1 in 1,200,000,000**",
+                                            title=f"`The Blinding Light has devoured {roblox_username}`",
+                                            description="**1 in 1,200,000,000**",
                                             color="98b7e0")
                                         embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                         embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/Luminosity.png")
@@ -440,7 +438,8 @@ def check_for_hover_text(file):
                                     print(time.strftime('%H:%M:%S') + f": Aura Rolled - Pixelation")
                                     embed = discord_webhook.DiscordEmbed(
                                         timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                        description=f"> ## @{roblox_username} has become PIXELATED!\n> **1 in 1,073,741,824**",
+                                        title=f"`@{roblox_username} has become PIXELATED!`",
+                                        description="**1 in 1,073,741,824**",
                                         color="ff0000")
                                     embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/Pixelation.png")
@@ -456,7 +455,8 @@ def check_for_hover_text(file):
                                         webhook = discord_webhook.DiscordWebhook(url=url)
                                         embed = discord_webhook.DiscordEmbed(
                                             timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                            description=f"> ## @{roblox_username} has become PIXELATED!\n> **1 in 1,073,741,824**",
+                                            title=f"`@{roblox_username} has become PIXELATED!`",
+                                            description="**1 in 1,073,741,824**",
                                             color="ff0000")
                                         embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                         embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/Pixelation.png")
@@ -466,14 +466,15 @@ def check_for_hover_text(file):
                                         webhook.execute()
                                     if aura_notif.get() == 1:
                                         notify("Zen", "You rolled Pixelation!")
-                        elif aura_detection.get() == 1 and "between POSITIVE and" in line:
+                        elif aura_detection.get() == 1 and "???????" in line:
                             if roblox_username in line:
                                 if multi_webhook.get() != "1":
                                     webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
                                     print(time.strftime('%H:%M:%S') + f": Aura Rolled - EQUINOX")
                                     embed = discord_webhook.DiscordEmbed(
                                         timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                        description=f"> ## @{roblox_username} has found the [???????] between POSITIVE and NEGATIVE.\n> **1 in 2,500,000,000**",
+                                        title=f"`@{roblox_username} has found the [???????] between POSITIVE and NEGATIVE.`",
+                                        description="**1 in 2,500,000,000**",
                                         color="000000")
                                     embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/EQUINOX.png")
@@ -489,7 +490,8 @@ def check_for_hover_text(file):
                                         webhook = discord_webhook.DiscordWebhook(url=url)
                                         embed = discord_webhook.DiscordEmbed(
                                             timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                            description=f"> ## @{roblox_username} has found the [???????] between POSITIVE and NEGATIVE.\n> **1 in 2,500,000,000**",
+                                            title=f"`@{roblox_username} has found the [???????] between POSITIVE and NEGATIVE.`",
+                                            description="**1 in 2,500,000,000**",
                                             color="000000")
                                         embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                         embed.set_thumbnail(url="https://cm3t.github.io/biome_thumb/EQUINOX.png")
@@ -505,7 +507,8 @@ def check_for_hover_text(file):
                                 print(time.strftime('%H:%M:%S') + f": Jester Spawned!")
                                 embed = discord_webhook.DiscordEmbed(
                                     timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                    description=f"> ## Jester Spawned!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
+                                    title=f"`Jester Spawned!`",
+                                    description=f"[Join Server]({psURL.get()})\n-# <t:{int(time.time())}:R>",
                                     color="a352ff"
                                 )
                                 embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
@@ -520,42 +523,13 @@ def check_for_hover_text(file):
                                     webhook = discord_webhook.DiscordWebhook(url=url)
                                     embed = discord_webhook.DiscordEmbed(
                                         timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                        description=f"> ## Jester Spawned!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
+                                        title=f"`Jester Spawned!`",
+                                        description=f"[Join Server]({psURL.get()})\n-# <t:{int(time.time())}:R>",
                                         color="a352ff"
                                     )
                                     embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                                     embed.set_thumbnail(
                                         url="https://cm3t.github.io/biome_thumb/JESTER.png")
-                                    webhook.add_embed(embed)
-                                    webhook.set_content(f"<@{discID.get()}>")
-                                    webhook.execute()
-                        elif 'Eden has appeared' in line and "<" in line:
-                            if multi_webhook.get() != "1":
-                                webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
-                                print(time.strftime('%H:%M:%S') + ": Eden has appeared somewhere in The Limbo.")
-                                embed = discord_webhook.DiscordEmbed(
-                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                    description="> ## Eden has appeared somewhere in The Limbo.",
-                                    color="000000"
-                                )
-                                embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
-                                embed.set_thumbnail(
-                                    url="https://maxstellar.github.io/biome_thumb/eden.png")
-                                webhook.add_embed(embed)
-                                webhook.set_content(f"<@{discID.get()}>")
-                                webhook.execute()
-                            else:
-                                print(time.strftime('%H:%M:%S') + ": Eden has appeared somewhere in The Limbo.")
-                                for url in webhook_urls:
-                                    webhook = discord_webhook.DiscordWebhook(url=url)
-                                    embed = discord_webhook.DiscordEmbed(
-                                        timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                        description="> ## Eden has appeared somewhere in The Limbo.",
-                                        color="000000"
-                                    )
-                                    embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
-                                    embed.set_thumbnail(
-                                        url="https://maxstellar.github.io/biome_thumb/eden.png")
                                     webhook.add_embed(embed)
                                     webhook.set_content(f"<@{discID.get()}>")
                                     webhook.execute()
@@ -565,7 +539,8 @@ def check_for_hover_text(file):
                             print(time.strftime('%H:%M:%S') + f": Mari Spawned!")
                             embed = discord_webhook.DiscordEmbed(
                                 timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                description=f"> ## Mari Spawned!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
+                                title=f"`Mari Spawned!`",
+                                description=f"[Join Server]({psURL.get()})\n-# <t:{int(time.time())}:R>",
                                 color="c49345"
                             )
                             embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
@@ -580,7 +555,8 @@ def check_for_hover_text(file):
                                 webhook = discord_webhook.DiscordWebhook(url=url)
                                 embed = discord_webhook.DiscordEmbed(
                                     timestamp=datetime.datetime.now(datetime.timezone.utc),
-                                    description=f"> ## Mari Spawned!\n> [Join Private Server]({psURL.get()})\n> -# <t:{int(time.time())}:R>",
+                                    title=f"`Mari Spawned!`",
+                                    description=f"[Join Server]({psURL.get()})\n-# <t:{int(time.time())}:R>",
                                     color="c49345"
                                 )
                                 embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
@@ -589,6 +565,38 @@ def check_for_hover_text(file):
                                 webhook.add_embed(embed)
                                 webhook.set_content(f"<@{discID.get()}>")
                                 webhook.execute()
+                elif 'Eden has appeared' in line and "<" in line:
+                    if multi_webhook.get() != "1":
+                        webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
+                        print(time.strftime('%H:%M:%S') + ": Eden has appeared somewhere in The Limbo.")
+                        embed = discord_webhook.DiscordEmbed(
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
+                            title=f"`Eden has appeared somewhere in The Limbo.`",
+                            description=f"[Join Server]({psURL.get()})\n-# <t:{int(time.time())}:R>",
+                            color="000000"
+                        )
+                        embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
+                        embed.set_thumbnail(
+                            url="https://maxstellar.github.io/biome_thumb/eden.png")
+                        webhook.add_embed(embed)
+                        webhook.set_content(f"<@{discID.get()}>")
+                        webhook.execute()
+                    else:
+                        print(time.strftime('%H:%M:%S') + ": Eden has appeared somewhere in The Limbo.")
+                        for url in webhook_urls:
+                            webhook = discord_webhook.DiscordWebhook(url=url)
+                            embed = discord_webhook.DiscordEmbed(
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
+                                title=f"`Eden has appeared somewhere in The Limbo.`",
+                                description=f"[Join Server]({psURL.get()})\n-# <t:{int(time.time())}:R>",
+                                color="000000"
+                            )
+                            embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
+                            embed.set_thumbnail(
+                                url="https://maxstellar.github.io/biome_thumb/eden.png")
+                            webhook.add_embed(embed)
+                            webhook.set_content(f"<@{discID.get()}>")
+                            webhook.execute()
             else:
                 time.sleep(0.1)
         else:
@@ -600,7 +608,7 @@ def check_for_hover_text(file):
                     return
                 close_webhook = discord_webhook.DiscordWebhook(url=webhookURL.get())
                 close_embed = discord_webhook.DiscordEmbed(
-                    description="**Roblox closed or crashed.**",
+                    title="`Roblox Closed/Crashed`",
                     timestamp=datetime.datetime.now(datetime.timezone.utc))
                 close_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                 close_webhook.add_embed(close_embed)
@@ -609,11 +617,12 @@ def check_for_hover_text(file):
                 for url in webhook_urls:
                     close_webhook = discord_webhook.DiscordWebhook(url=url)
                     close_embed = discord_webhook.DiscordEmbed(
-                        description="**Roblox closed or crashed.**",
+                        title="`Roblox Closed/Crashed`",
                         timestamp=datetime.datetime.now(datetime.timezone.utc))
                     close_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
                     close_webhook.add_embed(close_embed)
                     close_webhook.execute()
+
             root.title("Zen [PAUSED]")
             while True:
                 if not stopped:
@@ -675,7 +684,8 @@ def init():
 
     # start webhook
     starting_embed = discord_webhook.DiscordEmbed(
-        description="**Macro started!**\n-# Macro Version: v1.1.3",
+        title="`Macro Started`",
+        description="Macro Version: v1.1.3",
         timestamp=datetime.datetime.now(datetime.timezone.utc))
     starting_embed.set_author(name="Zen", icon_url="https://cm3t.github.io/biome_thumb/zen.png")
     if multi_webhook.get() != "1":
